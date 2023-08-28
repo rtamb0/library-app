@@ -8,6 +8,43 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <aside>
+        <dialog id="dialog">
+            <form method="dialog">
+                <section class="book-inputs">
+                    <p>
+                        <label for="title">Title:</label>
+                        <input id="title" name="title">
+                    </p>
+                    <p>
+                        <label for="author">Author:</label>
+                        <input id="author" name="author">
+                    </p>
+                    <p>
+                        <label for="pages">Number of Pages:</label>
+                        <input id="pages" name="pages">
+                    </p>
+                    <p>
+                        <label for="read">Read?</label>
+                        <ul>
+                            <li>
+                                <input type="radio" name="read" id="readyes">
+                                <label for="readyes">Yes</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="read" id="readno">
+                                <label for="readno">No</label>
+                            </li>
+                        </ul>
+                    </p>
+                </section>
+                <section class="book-buttons">
+                    <button value="confirm">Create</button>
+                    <button value="cancel">Cancel</button>
+                </section>
+            </form>
+        </dialog>
+    </aside>
     <section>
         <div class="library">
         </div>
