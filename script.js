@@ -40,6 +40,9 @@ function addBookToLibrary(title, author, pages, read) {
 
 myLibrary.showLibrary();
 
-const addButton = document.querySelector('#newbook')
+const bookDialog = document.querySelector('#dialog');
+const addButton = document.querySelector('#newbook');
 const confirmButton = document.querySelector('.book-buttons button:nth-child(1)');
 const cancelButton = document.querySelector('.book-buttons button:nth-child(2)');
+
+addButton.addEventListener('click', () => bookDialog.showModal());
