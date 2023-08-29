@@ -55,7 +55,7 @@ const dialog = {
 dialog.addButton.addEventListener('click', () => dialog.bookDialog.showModal());
 
 // Close the dialog
-
+dialog.cancelButton.addEventListener('click', () => dialog.bookDialog.close());
 
 const dialogInputs = {
     dialogTitle: document.querySelector('#title'),
