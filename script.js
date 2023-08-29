@@ -1,8 +1,14 @@
 const myLibrary = [];
+
 myLibrary.showLibrary = function() {
     this.forEach((book) => {
         createCard(book);
     });
+};
+
+myLibrary.addBookToLibrary = function(title, author, pages, read) {
+    const book = new Book(title, author, pages, read);
+    myLibrary.push(book);
 };
 
 function createCard(book) {
@@ -31,17 +37,11 @@ function Book(title, author, pages, read) {
     this.read = read
 };
 
-const book1 = new Book('20th Century Boys', 'Naoki Urasawa', '5000', 'No');
-myLibrary.push(book1);
+myLibrary.addBookToLibrary('20th Century Boys', 'Naoki Urasawa', '5000', 'No');
 
-const book2 = new Book('Fate Stay/Night', 'TYPE-MOON', '10000', 'No');
-myLibrary.push(book2);
+myLibrary.addBookToLibrary('Fate Stay/Night', 'TYPE-MOON', '10000', 'No');
 
-function addBookToLibrary(title, author, pages, read) {
-    const name = new Book(title, author, pages, read);
-    myLibrary.push(name);
-};
-
+// Display the library on page
 myLibrary.showLibrary();
 
 const dialog = {
@@ -49,12 +49,15 @@ const dialog = {
     addButton: document.querySelector('#newbook'),
     confirmButton: document.querySelector('.book-buttons button:nth-child(1)'),
     cancelButton: document.querySelector('.book-buttons button:nth-child(2)'),
-    showDialog: function() {
-        this.addButton.addEventListener('click', () => this.bookDialog.showModal());
+    addBookFromDialog: function() {
+        const book = new Book(this.dialogTitle.value, this.dialogAuthor.value, this.dialogPages.value, this.dialogRead());
+        createCard(book);
+        myLibrary.push(book);
     },
 };
 
-dialog.showDialog();
+// Show the dialog
+dialog.addButton.addEventListener('click', () => dialog.bookDialog.showModal());
 
 const dialogInputs = {
     dialogTitle: document.querySelector('#title'),
@@ -68,10 +71,5 @@ const dialogInputs = {
     },
 };
 
-
-dialog.confirmButton.addEventListener('click', addBook.bind(dialogInputs));
-
-function addBook() {
-    const book = new Book(this.dialogTitle.value, this.dialogAuthor.value, this.dialogPages.value, this.dialogRead());
-    createCard(book);
-};
+// Add Book from dialog inputs
+dialog.confirmButton.addEventListener('click', dialog.addBookFromDialog.bind(dialogInputs));
