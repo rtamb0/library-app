@@ -29,6 +29,16 @@ function createCard(book) {
     const readText = document.createElement('p');
     readText.innerHTML = `<strong>Read?</strong> ${book.read}`;
     bookCard.appendChild(readText);
+    removeCardButton.bind(bookCard)();
+};
+
+function removeCardButton() {
+    const removeButton = document.createElement('button');
+    this.appendChild(removeButton);
+    removeButton.addEventListener('click', () => {
+        delete myLibrary[this.dataset.indexNumber];
+        this.remove();
+    });
 };
 
 function Book(title, author, pages, read) {
