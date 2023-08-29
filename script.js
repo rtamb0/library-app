@@ -49,17 +49,13 @@ const dialog = {
     addButton: document.querySelector('#newbook'),
     confirmButton: document.querySelector('.book-buttons button:nth-child(1)'),
     cancelButton: document.querySelector('.book-buttons button:nth-child(2)'),
-    addBookFromDialog: function() {
-        if (this.dialogTitle.value === '' || this.dialogAuthor.value === '' || this.dialogRead() === undefined) return;
-        if (this.dialogPages.value === '') this.dialogPages.value = "Unknown";
-        const book = new Book(this.dialogTitle.value, this.dialogAuthor.value, this.dialogPages.value, this.dialogRead());
-        createCard(book);
-        myLibrary.push(book);
-    },
 };
 
 // Show the dialog
 dialog.addButton.addEventListener('click', () => dialog.bookDialog.showModal());
+
+// Close the dialog
+
 
 const dialogInputs = {
     dialogTitle: document.querySelector('#title'),
@@ -73,5 +69,13 @@ const dialogInputs = {
     },
 };
 
+function addBookFromDialog() {
+    if (dialogInputs.dialogTitle.value === '' || dialogInputs.dialogAuthor.value === '' || dialogInputs.dialogRead() === undefined) return;
+    if (dialogInputs.dialogPages.value === '') dialogInputs.dialogPages.value = "Unknown";
+    const book = new Book(dialogInputs.dialogTitle.value, dialogInputs.dialogAuthor.value, dialogInputs.dialogPages.value, dialogInputs.dialogRead());
+    createCard(book);
+    myLibrary.push(book);
+};
+
 // Add Book from dialog inputs
-dialog.confirmButton.addEventListener('click', dialog.addBookFromDialog.bind(dialogInputs));
+dialog.confirmButton.addEventListener('click', addBookFromDialog);
