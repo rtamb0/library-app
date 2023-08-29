@@ -52,6 +52,13 @@ const dialog = {
 
 dialog.showDialog();
 
+const dialogInputs = {
+    dialogTitle: document.querySelector('#title'),
+    dialogAuthor: document.querySelector('#author'),
+    dialogPages: document.querySelector('#pages'),
+    dialogRead: [document.querySelector('#readyes'), document.querySelector('#readno')],
+};
+
 confirmButton.addEventListener('click', () => {
 
 })
