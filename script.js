@@ -15,6 +15,7 @@ function createCard(book) {
     const library = document.querySelector('.library');
     const bookCard = document.createElement('div');
     bookCard.classList.add('book');
+    bookCard.setAttribute('data-index-number', myLibrary.indexOf(book));
     library.appendChild(bookCard);
     const titleText = document.createElement('h3');
     titleText.innerHTML = `${book.title}`;
@@ -73,8 +74,8 @@ function addBookFromDialog() {
     if (dialogInputs.dialogTitle.value === '' || dialogInputs.dialogAuthor.value === '' || dialogInputs.dialogRead() === undefined) return;
     if (dialogInputs.dialogPages.value === '') dialogInputs.dialogPages.value = "Unknown";
     const book = new Book(dialogInputs.dialogTitle.value, dialogInputs.dialogAuthor.value, dialogInputs.dialogPages.value, dialogInputs.dialogRead());
-    createCard(book);
     myLibrary.push(book);
+    createCard(book);
 };
 
 // Add Book from dialog inputs
