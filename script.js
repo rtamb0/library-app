@@ -50,6 +50,8 @@ const dialog = {
     confirmButton: document.querySelector('.book-buttons button:nth-child(1)'),
     cancelButton: document.querySelector('.book-buttons button:nth-child(2)'),
     addBookFromDialog: function() {
+        if (this.dialogTitle.value === '' || this.dialogAuthor.value === '' || this.dialogRead() === undefined) return;
+        if (this.dialogPages.value === '') this.dialogPages.value = "Unknown";
         const book = new Book(this.dialogTitle.value, this.dialogAuthor.value, this.dialogPages.value, this.dialogRead());
         createCard(book);
         myLibrary.push(book);
