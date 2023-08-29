@@ -40,9 +40,18 @@ function addBookToLibrary(title, author, pages, read) {
 
 myLibrary.showLibrary();
 
-const bookDialog = document.querySelector('#dialog');
-const addButton = document.querySelector('#newbook');
-const confirmButton = document.querySelector('.book-buttons button:nth-child(1)');
-const cancelButton = document.querySelector('.book-buttons button:nth-child(2)');
+const dialog = {
+    bookDialog: document.querySelector('#dialog'),
+    addButton: document.querySelector('#newbook'),
+    confirmButton: document.querySelector('.book-buttons button:nth-child(1)'),
+    cancelButton: document.querySelector('.book-buttons button:nth-child(2)'),
+    showDialog: function() {
+        this.addButton.addEventListener('click', () => this.bookDialog.showModal());
+    },
+};
 
-addButton.addEventListener('click', () => bookDialog.showModal());
+dialog.showDialog();
+
+confirmButton.addEventListener('click', () => {
+
+})
