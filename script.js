@@ -1,23 +1,27 @@
 const myLibrary = [];
 myLibrary.showLibrary = function() {
     this.forEach((book) => {
-        const library = document.querySelector('.library');
-        const bookCard = document.createElement('div');
-        bookCard.classList.add('book');
-        library.appendChild(bookCard);
-        const titleText = document.createElement('h3');
-        titleText.innerHTML = `${book.title}`;
-        bookCard.appendChild(titleText);
-        const authorText = document.createElement('p');
-        authorText.innerHTML = `<strong>Made by:</strong> ${book.author}`;
-        bookCard.appendChild(authorText);
-        const pagesText = document.createElement('p');
-        pagesText.innerHTML = `<strong>Pages:</strong> ${book.pages}`;
-        bookCard.appendChild(pagesText);
-        const readText = document.createElement('p');
-        readText.innerHTML = `<strong>Read?</strong> ${book.read}`;
-        bookCard.appendChild(readText);
+        createCard(book);
     });
+};
+
+function createCard(book) {
+    const library = document.querySelector('.library');
+    const bookCard = document.createElement('div');
+    bookCard.classList.add('book');
+    library.appendChild(bookCard);
+    const titleText = document.createElement('h3');
+    titleText.innerHTML = `${book.title}`;
+    bookCard.appendChild(titleText);
+    const authorText = document.createElement('p');
+    authorText.innerHTML = `<strong>Made by:</strong> ${book.author}`;
+    bookCard.appendChild(authorText);
+    const pagesText = document.createElement('p');
+    pagesText.innerHTML = `<strong>Pages:</strong> ${book.pages}`;
+    bookCard.appendChild(pagesText);
+    const readText = document.createElement('p');
+    readText.innerHTML = `<strong>Read?</strong> ${book.read}`;
+    bookCard.appendChild(readText);
 };
 
 function Book(title, author, pages, read) {
@@ -56,9 +60,18 @@ const dialogInputs = {
     dialogTitle: document.querySelector('#title'),
     dialogAuthor: document.querySelector('#author'),
     dialogPages: document.querySelector('#pages'),
-    dialogRead: [document.querySelector('#readyes'), document.querySelector('#readno')],
+    dialogRead: function() {
+        const readYes = document.querySelector('#readyes');
+        const readNo = document.querySelector('#readno');
+        if (readYes.checked === true) return readYes.value;
+        if (readNo.checked === true) return readNo.value;
+    },
 };
 
-confirmButton.addEventListener('click', () => {
 
-})
+dialog.confirmButton.addEventListener('click', addBook.bind(dialogInputs));
+
+function addBook() {
+    const book = new Book(this.dialogTitle.value, this.dialogAuthor.value, this.dialogPages.value, this.dialogRead());
+    createCard(book);
+};
