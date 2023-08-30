@@ -37,6 +37,7 @@ const card = {
         bookCards.forEach((bookCard) => {
             const removeButton = document.createElement('button');
             removeButton.dataset.indexNumber = bookCard.dataset.indexNumber;
+            if (bookCard.lastElementChild === bookCard.querySelector('button')) bookCard.lastElementChild.remove();
             bookCard.appendChild(removeButton);
             removeButton.addEventListener('click', () => {
                 bookCards.forEach((bookCard) => {
