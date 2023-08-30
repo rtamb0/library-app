@@ -28,7 +28,7 @@ const card = {
         const library = document.querySelector('.library');
         const bookCard = document.createElement('p');
         bookCard.classList.add('book');
-        bookCard.setAttribute('data-index-number', myLibrary.indexOf(book));
+        bookCard.dataset.indexNumber = myLibrary.indexOf(book);
         library.appendChild(bookCard);
         const titleText = document.createElement('h3');
         titleText.innerHTML = `${book.title}`;
@@ -47,8 +47,9 @@ const card = {
         const bookCards = document.querySelectorAll('.book');
         bookCards.forEach((bookCard) => {
             const removeButton = document.createElement('button');
+            removeButton.classList.add('remove');
             removeButton.dataset.indexNumber = bookCard.dataset.indexNumber;
-            if (bookCard.lastElementChild === bookCard.querySelector('button')) bookCard.lastElementChild.remove();
+            if (bookCard.lastElementChild === bookCard.querySelector('button.remove')) bookCard.lastElementChild.remove();
             bookCard.appendChild(removeButton);
             removeButton.addEventListener('click', () => {
                 myLibrary.splice(removeButton.dataset.indexNumber, 1);
