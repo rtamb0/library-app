@@ -59,6 +59,7 @@ const card = {
         // Creates the toggle read button
         const toggleRead = document.createElement('button');
         toggleRead.classList.add('toggle-read');
+        toggleRead.innerHTML = "Read"
         bookCard.appendChild(toggleRead);
         toggleRead.addEventListener('click', () => {
             book.readStatus();
@@ -70,6 +71,7 @@ const card = {
         bookCards.forEach((bookCard) => {
             const removeButton = document.createElement('button');
             removeButton.classList.add('remove');
+            removeButton.innerHTML = "Remove";
             removeButton.dataset.indexNumber = bookCard.dataset.indexNumber;
             // Removes the remove button on existing card and replace it with a new one with new querySelectorAll reference
             if (bookCard.lastElementChild === bookCard.querySelector('button.remove')) bookCard.lastElementChild.remove();
