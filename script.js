@@ -55,6 +55,7 @@ const card = {
                 bookCards.forEach((bookCard) => {
                     if (removeButton.dataset.indexNumber <= bookCard.dataset.indexNumber) {
                         bookCard.dataset.indexNumber -= 1;
+                        // Refers to the current bookCard remove button
                         bookCard.lastElementChild.dataset.indexNumber -= 1
                     };
                 });
