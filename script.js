@@ -50,6 +50,13 @@ const card = {
         const readText = document.createElement('p');
         readText.innerHTML = `<strong>Read?</strong> ${book.read}`;
         bookCard.appendChild(readText);
+        const toggleRead = document.createElement('button');
+        toggleRead.classList.add('toggle-read');
+        bookCard.appendChild(toggleRead);
+        toggleRead.addEventListener('click', () => {
+            book.readStatus();
+            readText.innerHTML = `<strong>Read?</strong> ${book.read}`;
+        });
     },
     removeCard: function() {
         const bookCards = document.querySelectorAll('.book');
