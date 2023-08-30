@@ -51,13 +51,14 @@ const card = {
             if (bookCard.lastElementChild === bookCard.querySelector('button')) bookCard.lastElementChild.remove();
             bookCard.appendChild(removeButton);
             removeButton.addEventListener('click', () => {
+                myLibrary.splice(removeButton.dataset.indexNumber, 1);
                 bookCards.forEach((bookCard) => {
                     if (removeButton.dataset.indexNumber <= bookCard.dataset.indexNumber) {
                         bookCard.dataset.indexNumber -= 1;
+                        bookCard.lastElementChild.dataset.indexNumber -= 1
                     };
                 });
                 bookCard.remove();
-                myLibrary.splice(removeButton.dataset.indexNumber, 1);
             });
         });
     },
