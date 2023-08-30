@@ -7,10 +7,21 @@ myLibrary.showLibrary = function() {
     card.removeCard();
 };
 
+function Book(title, author, pages, read) {
+    this.title = title
+    this.author = author
+    this.pages = pages
+    this.read = read
+};
+
 myLibrary.addBookToLibrary = function(title, author, pages, read) {
     const book = new Book(title, author, pages, read);
     myLibrary.push(book);
 };
+
+myLibrary.addBookToLibrary('20th Century Boys', 'Naoki Urasawa', '5000', 'No');
+
+myLibrary.addBookToLibrary('Fate Stay/Night', 'TYPE-MOON', '10000', 'No');
 
 const card = {
     createCard: function(book) {
@@ -51,17 +62,6 @@ const card = {
         });
     },
 };
-
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
-};
-
-myLibrary.addBookToLibrary('20th Century Boys', 'Naoki Urasawa', '5000', 'No');
-
-myLibrary.addBookToLibrary('Fate Stay/Night', 'TYPE-MOON', '10000', 'No');
 
 // Display the library on page
 myLibrary.showLibrary();
