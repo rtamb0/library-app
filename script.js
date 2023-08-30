@@ -2,8 +2,9 @@ const myLibrary = [];
 
 myLibrary.showLibrary = function() {
     this.forEach((book) => {
-        createCard(book);
+        card.createCard(book);
     });
+    card.removeCard();
 };
 
 myLibrary.addBookToLibrary = function(title, author, pages, read) {
@@ -11,34 +12,43 @@ myLibrary.addBookToLibrary = function(title, author, pages, read) {
     myLibrary.push(book);
 };
 
-function createCard(book) {
-    const library = document.querySelector('.library');
-    const bookCard = document.createElement('div');
-    bookCard.classList.add('book');
-    bookCard.setAttribute('data-index-number', myLibrary.indexOf(book));
-    library.appendChild(bookCard);
-    const titleText = document.createElement('h3');
-    titleText.innerHTML = `${book.title}`;
-    bookCard.appendChild(titleText);
-    const authorText = document.createElement('p');
-    authorText.innerHTML = `<strong>Made by:</strong> ${book.author}`;
-    bookCard.appendChild(authorText);
-    const pagesText = document.createElement('p');
-    pagesText.innerHTML = `<strong>Pages:</strong> ${book.pages}`;
-    bookCard.appendChild(pagesText);
-    const readText = document.createElement('p');
-    readText.innerHTML = `<strong>Read?</strong> ${book.read}`;
-    bookCard.appendChild(readText);
-    removeCardButton.bind(bookCard)();
-};
-
-function removeCardButton() {
-    const removeButton = document.createElement('button');
-    this.appendChild(removeButton);
-    removeButton.addEventListener('click', () => {
-        delete myLibrary[this.dataset.indexNumber];
-        this.remove();
-    });
+const card = {
+    library: document.querySelector('.library'),
+    createCard: function(book) {
+        const bookCard = document.createElement('p');
+        bookCard.classList.add('book');
+        bookCard.setAttribute('data-index-number', myLibrary.indexOf(book));
+        this.library.appendChild(bookCard);
+        const titleText = document.createElement('h3');
+        titleText.innerHTML = `${book.title}`;
+        bookCard.appendChild(titleText);
+        const authorText = document.createElement('p');
+        authorText.innerHTML = `<strong>Made by:</strong> ${book.author}`;
+        bookCard.appendChild(authorText);
+        const pagesText = document.createElement('p');
+        pagesText.innerHTML = `<strong>Pages:</strong> ${book.pages}`;
+        bookCard.appendChild(pagesText);
+        const readText = document.createElement('p');
+        readText.innerHTML = `<strong>Read?</strong> ${book.read}`;
+        bookCard.appendChild(readText);
+    },
+    removeCard: function() {
+        const bookCards = document.querySelectorAll('.book');
+        bookCards.forEach((bookCard) => {
+            const removeButton = document.createElement('button');
+            removeButton.dataset.indexNumber = bookCard.dataset.indexNumber;
+            bookCard.appendChild(removeButton);
+            removeButton.addEventListener('click', () => {
+                bookCards.forEach((bookCard) => {
+                    if (removeButton.dataset.indexNumber <= bookCard.dataset.indexNumber) {
+                        bookCard.dataset.indexNumber -= 1;
+                    };
+                });
+                bookCard.remove();
+                myLibrary.splice(removeButton.dataset.indexNumber, 1);
+            });
+        });
+    },
 };
 
 function Book(title, author, pages, read) {
@@ -85,7 +95,8 @@ function addBookFromDialog() {
     if (dialogInputs.dialogPages.value === '') dialogInputs.dialogPages.value = "Unknown";
     const book = new Book(dialogInputs.dialogTitle.value, dialogInputs.dialogAuthor.value, dialogInputs.dialogPages.value, dialogInputs.dialogRead());
     myLibrary.push(book);
-    createCard(book);
+    card.createCard(book);
+    card.removeCard();
 };
 
 // Add Book from dialog inputs
