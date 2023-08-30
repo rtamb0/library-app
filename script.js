@@ -34,22 +34,29 @@ myLibrary.addBookToLibrary('Fate Stay/Night', 'TYPE-MOON', '10000', 'No');
 const card = {
     createCard: function(book) {
         const library = document.querySelector('.library');
+        // Creates the book card
         const bookCard = document.createElement('p');
         bookCard.classList.add('book');
+        // Links the book index with the book card
         bookCard.dataset.indexNumber = myLibrary.indexOf(book);
         library.appendChild(bookCard);
+        // Creates the title
         const titleText = document.createElement('h3');
         titleText.innerHTML = `${book.title}`;
         bookCard.appendChild(titleText);
+        // Creates the author text
         const authorText = document.createElement('p');
         authorText.innerHTML = `<strong>Made by:</strong> ${book.author}`;
         bookCard.appendChild(authorText);
+        // Creates the pages count text
         const pagesText = document.createElement('p');
         pagesText.innerHTML = `<strong>Pages:</strong> ${book.pages}`;
         bookCard.appendChild(pagesText);
+        // Creates the read status text
         const readText = document.createElement('p');
         readText.innerHTML = `<strong>Read?</strong> ${book.read}`;
         bookCard.appendChild(readText);
+        // Creates the toggle read button
         const toggleRead = document.createElement('button');
         toggleRead.classList.add('toggle-read');
         bookCard.appendChild(toggleRead);
@@ -64,6 +71,7 @@ const card = {
             const removeButton = document.createElement('button');
             removeButton.classList.add('remove');
             removeButton.dataset.indexNumber = bookCard.dataset.indexNumber;
+            // Removes the remove button on existing card and replace it with a new one with new querySelectorAll reference
             if (bookCard.lastElementChild === bookCard.querySelector('button.remove')) bookCard.lastElementChild.remove();
             bookCard.appendChild(removeButton);
             removeButton.addEventListener('click', () => {
