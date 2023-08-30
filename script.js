@@ -13,12 +13,12 @@ myLibrary.addBookToLibrary = function(title, author, pages, read) {
 };
 
 const card = {
-    library: document.querySelector('.library'),
     createCard: function(book) {
+        const library = document.querySelector('.library');
         const bookCard = document.createElement('p');
         bookCard.classList.add('book');
         bookCard.setAttribute('data-index-number', myLibrary.indexOf(book));
-        this.library.appendChild(bookCard);
+        library.appendChild(bookCard);
         const titleText = document.createElement('h3');
         titleText.innerHTML = `${book.title}`;
         bookCard.appendChild(titleText);
