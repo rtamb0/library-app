@@ -10,7 +10,11 @@ header {
     background-color: #80ced6;
 }
 
-section {
+body {
+    background-color: #618685;
+}
+
+body > section {
     margin: 2rem;
     display: grid;
     row-gap: 1rem;
