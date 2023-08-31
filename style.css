@@ -16,6 +16,9 @@ header {
 
 body {
     background-color: #f6e2b3;
+    background-image: url(assets/flower.svg);
+    background-size: 125px;
+    background-position: top center;
 }
 
 body > section {
