@@ -32,15 +32,39 @@ section {
     padding: 1rem;
     display: grid;
     row-gap: 1rem;
+    position: relative;
 }
+
 .book h3 {
     font-size: 1.5rem;
 }
 
 .toggle-read {
-    width: 3rem;
-    padding: 0.2rem 0;
+    width: 6rem;
+    padding: 0.5rem 0;
     align-self: center;
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: rgb(216, 190, 43);
+}
+
+.toggle-read:hover {
+    transform: scale(1.1);
+}
+
+.toggle-read:active {
+    background-color: rgb(199, 176, 49);
+}
+
+.toggle-read.read-yes {
+    background-color: rgb(43, 216, 121);
+}
+
+.toggle-read.read-yes:active {
+    background-color: rgb(54, 199, 119);
 }
 
 .remove {
