@@ -101,6 +101,14 @@ const card = {
                     };
                 });
                 bookCard.remove();
+                // Displays text when there are no more cards left
+                const library = document.querySelector('.library');
+                if (library.contains(library.querySelector('.book')) === false) {
+                    const reminderText = document.createElement('h2');
+                    reminderText.classList.add('reminder-text');
+                    reminderText.innerHTML = "A bit empty here don't you think? Create new book entry!";
+                    library.appendChild(reminderText);
+                };
             });
         });
     },
@@ -149,4 +157,11 @@ function addBookFromDialog() {
 };
 
 // Add Book from dialog inputs
-dialog.confirmButton.addEventListener('click', addBookFromDialog);
+dialog.confirmButton.addEventListener('click', () => {
+    // Removes the text that displays when there are no more cards left
+    const library = document.querySelector('.library');
+    if (library.contains(library.querySelector('.reminder-text')) === true) {
+        library.querySelector('.reminder-text').remove();
+    };
+    addBookFromDialog();
+});
