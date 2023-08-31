@@ -164,6 +164,7 @@ function addBookFromDialog() {
 // Add Book from dialog inputs
 dialog.confirmButton.addEventListener('click', (event) => {
     event.preventDefault();
+    dialog.dialogForm.reportValidity()
     // Removes the text that displays when there are no more cards left
     const libraryContainer = document.querySelector('.library-container');
     if (libraryContainer.contains(libraryContainer.querySelector('.reminder-text')) === true) {
