@@ -35,6 +35,7 @@ body > section {
 
 .book {
     background-color: #fefbd8;
+    border-radius: 16px;
     padding: 1rem;
     display: grid;
     row-gap: 1rem;
