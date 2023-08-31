@@ -158,7 +158,7 @@ form ul {
     gap: 0.5rem;
 }
 
-.book-inputs label, div > p {
+.book-inputs label, .book-inputs div > p {
     color: white;
     font-weight: 700;
     font-size: 1.1rem;
@@ -174,7 +174,7 @@ p > input {
     font-size: inherit;
 }
 
-label[for="title"]::after, label[for="author"]::after, div > p::after {
+label[for="title"]::after, label[for="author"]::after, .book-inputs div > p::after {
     content: '*';
     color: rgb(219, 31, 31);
 }
