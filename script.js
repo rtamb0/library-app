@@ -106,7 +106,7 @@ const card = {
                 if (library.contains(library.querySelector('.book')) === false) {
                     const reminderText = document.createElement('h2');
                     reminderText.classList.add('reminder-text');
-                    reminderText.innerHTML = "A bit empty here don't you think? Create new book entry!";
+                    reminderText.innerHTML = "A bit empty here don't you think? Create a new book entry!";
                     library.appendChild(reminderText);
                 };
             });
