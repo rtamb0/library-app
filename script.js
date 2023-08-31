@@ -112,10 +112,16 @@ const dialog = {
 };
 
 // Show the dialog
-dialog.addButton.addEventListener('click', () => dialog.bookDialog.showModal());
+dialog.addButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    dialog.bookDialog.showModal();
+});
 
 // Close the dialog
-dialog.cancelButton.addEventListener('click', () => dialog.bookDialog.close());
+dialog.cancelButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    dialog.bookDialog.close();
+});
 
 const dialogInputs = {
     dialogTitle: document.querySelector('#title'),
