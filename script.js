@@ -107,7 +107,7 @@ const card = {
                     const reminderText = document.createElement('h2');
                     reminderText.classList.add('reminder-text');
                     reminderText.innerHTML = "A bit empty here don't you think? Create a new book entry!";
-                    library.appendChild(reminderText);
+                    library.parentNode.appendChild(reminderText);
                 };
             });
         });
@@ -159,9 +159,9 @@ function addBookFromDialog() {
 // Add Book from dialog inputs
 dialog.confirmButton.addEventListener('click', () => {
     // Removes the text that displays when there are no more cards left
-    const library = document.querySelector('.library');
-    if (library.contains(library.querySelector('.reminder-text')) === true) {
-        library.querySelector('.reminder-text').remove();
+    const libraryContainer = document.querySelector('.library-container');
+    if (libraryContainer.contains(libraryContainer.querySelector('.reminder-text')) === true) {
+        libraryContainer.querySelector('.reminder-text').remove();
     };
     addBookFromDialog();
 });
