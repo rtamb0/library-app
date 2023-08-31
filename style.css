@@ -172,6 +172,14 @@ p > input::placeholder {
     font-size: 0.8rem;
 }
 
+p > input:focus:invalid {
+    outline-color: rgb(158, 60, 60);
+}
+
+p > input:focus:valid {
+    outline-color: rgb(43, 216, 121);
+}
+
 #pages {
     width: 65px;
 }
