@@ -140,3 +140,8 @@ p > input {
 #pages {
     width: 50px;
 }
+
+div > ul {
+    display: flex;
+    gap: 1rem;
+}
