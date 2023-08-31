@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Belanosima','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    letter-spacing: 0.1rem;
     --boxshadow: 0px 5px 5px 0px rgba(126, 102, 81, 0.75);
     --hoverscale: scale(1.1);
 }
@@ -29,8 +30,12 @@ body > section {
     row-gap: 1rem;
 }
 
+button {
+    font-size: inherit;
+}
+
 #newbook {
-    width: 6rem;
+    width: 7rem;
     padding: 0.6rem 0;
     border-radius: 10px;
     border: 2px solid rgb(255, 255, 255);
@@ -68,7 +73,7 @@ body > section {
 }
 
 .toggle-read {
-    width: 6rem;
+    width: 7rem;
     padding: 0.5rem 0;
     align-self: center;
     position: absolute;
@@ -96,7 +101,7 @@ body > section {
 }
 
 .remove {
-    width: 6rem;
+    width: 7rem;
     padding: 0.6rem 0;
     justify-self: end;
     color: white;
@@ -119,6 +124,7 @@ body > section {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-size: 2rem;
 }
 
 dialog {
