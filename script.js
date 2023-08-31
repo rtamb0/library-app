@@ -45,9 +45,13 @@ const card = {
         // Creates the book card
         const bookCard = document.createElement('p');
         bookCard.classList.add('book');
+        if (library.contains(library.querySelector('.book'))) {
+            library.insertBefore(bookCard, library.querySelector('.book'));
+        } else {
+            library.appendChild(bookCard);
+        };
         // Links the book index with the book card
         bookCard.dataset.indexNumber = myLibrary.indexOf(book);
-        library.appendChild(bookCard);
         // Creates the title
         const titleText = document.createElement('h3');
         titleText.innerHTML = `${book.title}`;
@@ -89,7 +93,7 @@ const card = {
             removeButton.addEventListener('click', () => {
                 myLibrary.splice(removeButton.dataset.indexNumber, 1);
                 bookCards.forEach((bookCard) => {
-                    if (removeButton.dataset.indexNumber <= bookCard.dataset.indexNumber) {
+                    if (removeButton.dataset.indexNumber < bookCard.dataset.indexNumber) {
                         bookCard.dataset.indexNumber -= 1;
                         // Refers to the bookCard remove buttons in this iteration
                         bookCard.lastElementChild.dataset.indexNumber -= 1;
