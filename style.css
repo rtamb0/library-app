@@ -112,6 +112,10 @@ body > section {
 dialog {
     margin: auto auto;
     padding: 3rem;
+    border: 2px solid white;
+    border-radius: 15px;
+    background-color: #7e6651;
+    box-shadow: var(--boxshadow);
 }
 
 form ul {
@@ -130,11 +134,17 @@ form ul {
     gap: 0.5rem;
 }
 
+.book-inputs label, div > p {
+    color: white;
+    font-weight: 700;
+}
+
 p > input {
     width: 200px;
     font-family: inherit;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: #f6e2b3;
     padding: 4px 3px;
 }
 
@@ -156,7 +166,7 @@ div > ul {
 .book-buttons button {
     flex: 1;
     padding: 0.5rem 0;
-    border: 2px solid black;
+    border: 2px solid rgb(255, 255, 255);
     border-radius: 8px;
 }
 
