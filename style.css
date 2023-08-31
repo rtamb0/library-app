@@ -2,12 +2,14 @@
     margin: 0;
     padding: 0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    --boxshadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
 }
 
 header {
     text-align: center;
     padding: 2rem 0;
     background-color: #80ced6;
+    box-shadow: var(--boxshadow)
 }
 
 body {
@@ -37,6 +39,7 @@ body > section {
     display: grid;
     row-gap: 1rem;
     position: relative;
+    box-shadow: var(--boxshadow);
 }
 
 .book h3 {
