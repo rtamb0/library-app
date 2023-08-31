@@ -63,19 +63,13 @@ const card = {
         // Creates the toggle read button
         const toggleRead = document.createElement('button');
         toggleRead.classList.add('toggle-read');
-        if (book.read === "Yes") {
-            toggleRead.classList.add('read-yes');
-        } else {
-            toggleRead.classList.add('read-no');
-        };
+        if (book.read === "Yes") toggleRead.classList.add('read-yes');
         toggleRead.innerHTML = `Read? ${book.read}`;
         toggleRead.addEventListener('click', function() {
             book.readStatus();
             if (book.read === "Yes") {
                 this.classList.add('read-yes');
-                this.classList.remove('read-no');
             } else {
-                this.classList.add('read-no');
                 this.classList.remove('read-yes');
             };
             this.innerHTML = `Read? ${book.read}`;
