@@ -119,6 +119,7 @@ myLibrary.showLibrary();
 
 const dialog = {
     bookDialog: document.querySelector('#dialog'),
+    dialogForm: document.querySelector('#dialog form'),
     addButton: document.querySelector('#newbook'),
     confirmButton: document.querySelector('.book-buttons button:nth-child(1)'),
     cancelButton: document.querySelector('.book-buttons button:nth-child(2)'),
@@ -161,11 +162,16 @@ function addBookFromDialog() {
 };
 
 // Add Book from dialog inputs
-dialog.confirmButton.addEventListener('click', () => {
+dialog.confirmButton.addEventListener('click', (event) => {
+    event.preventDefault();
     // Removes the text that displays when there are no more cards left
     const libraryContainer = document.querySelector('.library-container');
     if (libraryContainer.contains(libraryContainer.querySelector('.reminder-text')) === true) {
         libraryContainer.querySelector('.reminder-text').remove();
     };
     addBookFromDialog();
+    if (dialog.dialogForm.checkValidity() === true) {
+        dialog.bookDialog.close();
+        dialog.dialogForm.reset();
+    };
 });
