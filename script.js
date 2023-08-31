@@ -31,6 +31,14 @@ myLibrary.addBookToLibrary('20th Century Boys', 'Naoki Urasawa', '5000', 'No');
 
 myLibrary.addBookToLibrary('Fate Stay/Night', 'TYPE-MOON', '10000', 'No');
 
+myLibrary.addBookToLibrary('Solanin', 'Inio Asano', '200', 'No');
+
+myLibrary.addBookToLibrary('Spider-Man Noir: The Complete Collection', 'David Hine and Fabrice Sapolsky', '300', 'Yes');
+
+myLibrary.addBookToLibrary('Xenoblade 2: Official Artworks - Alrest Records', 'Multiple Authors', '350', 'Yes');
+
+myLibrary.addBookToLibrary('Classroom of the Elite', 'Syougo Kinugasa', '15000', 'No');
+
 const card = {
     createCard: function(book) {
         const library = document.querySelector('.library');
