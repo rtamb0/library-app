@@ -3,6 +3,7 @@
     padding: 0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     --boxshadow: 0px 5px 5px 0px rgba(0,0,0,0.75);
+    --hoverscale: scale(1.1);
 }
 
 header {
@@ -23,8 +24,20 @@ body > section {
 }
 
 #newbook {
-    width: 5rem;
-    padding: 0.4rem 0;
+    width: 6rem;
+    padding: 0.6rem 0;
+    border-radius: 10px;
+    border: 2px solid rgb(255, 255, 255);
+    font-weight: 700;
+    background-color: #d5f4e6;
+}
+
+#newbook:hover {
+    transform: var(--hoverscale);
+}
+
+#newbook:active {
+    background-color: #bdd6cc; 
 }
 
 .library {
@@ -60,7 +73,7 @@ body > section {
 }
 
 .toggle-read:hover {
-    transform: scale(1.1);
+    transform: var(--hoverscale);
 }
 
 .toggle-read:active {
@@ -87,7 +100,7 @@ body > section {
 }
 
 .remove:hover {
-    transform: scale(1.1);
+    transform: var(--hoverscale);
 }
 
 .remove:active {
