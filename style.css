@@ -30,4 +30,19 @@ section {
 .book {
     background-color: #fefbd8;
     padding: 1rem;
+    display: grid;
+    row-gap: 1rem;
+}
+.book h3 {
+    font-size: 1.5rem;
+}
+
+.toggle-read {
+    width: 3rem;
+    padding: 0.2rem 0;
+}
+
+.remove {
+    width: 6rem;
+    padding: 0.6rem 0;
 }
