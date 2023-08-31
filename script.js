@@ -61,20 +61,26 @@ const card = {
         pagesText.innerHTML = `<strong>Pages:</strong> ${book.pages}`;
         bookCard.appendChild(pagesText);
         // Creates the toggle read button
-        const readStatus = document.createElement('div');
-        bookCard.appendChild(readStatus);
         const toggleRead = document.createElement('button');
         toggleRead.classList.add('toggle-read');
-        toggleRead.innerHTML = "Read?"
-        toggleRead.addEventListener('click', () => {
+        if (book.read === "Yes") {
+            toggleRead.classList.add('read-yes');
+        } else {
+            toggleRead.classList.add('read-no');
+        };
+        toggleRead.innerHTML = `Read? ${book.read}`;
+        toggleRead.addEventListener('click', function() {
             book.readStatus();
-            readText.innerHTML = `${book.read}`;
+            if (book.read === "Yes") {
+                this.classList.add('read-yes');
+                this.classList.remove('read-no');
+            } else {
+                this.classList.add('read-no');
+                this.classList.remove('read-yes');
+            };
+            this.innerHTML = `Read? ${book.read}`;
         });
-        readStatus.appendChild(toggleRead);
-        // Creates the read status text
-        const readText = document.createElement('p');
-        readText.innerHTML = `${book.read}`;
-        readStatus.appendChild(readText);
+        bookCard.appendChild(toggleRead);
     },
     removeCard: function() {
         const bookCards = document.querySelectorAll('.book');
