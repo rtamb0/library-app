@@ -155,6 +155,7 @@ form ul {
 .book-inputs label, div > p {
     color: white;
     font-weight: 700;
+    font-size: 1.1rem;
 }
 
 p > input {
