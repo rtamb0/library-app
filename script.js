@@ -25,6 +25,7 @@ Book.prototype.readStatus = function() {
 myLibrary.addBookToLibrary = function(title, author, pages, read) {
     const book = new Book(title, author, pages, read);
     myLibrary.push(book);
+    return book;
 };
 
 myLibrary.addBookToLibrary('20th Century Boys', 'Naoki Urasawa', '5000', 'No');
@@ -142,8 +143,7 @@ const dialogInputs = {
 function addBookFromDialog() {
     if (dialogInputs.dialogTitle.value === '' || dialogInputs.dialogAuthor.value === '' || dialogInputs.dialogRead() === undefined) return;
     if (dialogInputs.dialogPages.value === '') dialogInputs.dialogPages.value = "Unknown";
-    const book = new Book(dialogInputs.dialogTitle.value, dialogInputs.dialogAuthor.value, dialogInputs.dialogPages.value, dialogInputs.dialogRead());
-    myLibrary.push(book);
+    const book = myLibrary.addBookToLibrary(dialogInputs.dialogTitle.value, dialogInputs.dialogAuthor.value, dialogInputs.dialogPages.value, dialogInputs.dialogRead());
     card.createCard(book);
     card.removeCard();
 };
