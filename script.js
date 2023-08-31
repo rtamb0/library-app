@@ -150,8 +150,12 @@ const dialogInputs = {
 
 function addBookFromDialog() {
     if (dialogInputs.dialogTitle.value === '' || dialogInputs.dialogAuthor.value === '' || dialogInputs.dialogRead() === undefined) return;
-    if (dialogInputs.dialogPages.value === '') dialogInputs.dialogPages.value = "Unknown";
+    if (dialogInputs.dialogPages.value === '') {
+        dialogInputs.dialogPages.type = 'text';
+        dialogInputs.dialogPages.value = "Unknown";
+    }
     const book = myLibrary.addBookToLibrary(dialogInputs.dialogTitle.value, dialogInputs.dialogAuthor.value, dialogInputs.dialogPages.value, dialogInputs.dialogRead());
+    if (dialogInputs.dialogPages.type === 'text') dialogInputs.dialogPages.type = 'number';
     card.createCard(book);
     card.removeCard();
 };
