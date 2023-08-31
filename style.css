@@ -136,6 +136,12 @@ dialog {
     box-shadow: var(--boxshadow);
 }
 
+dialog h4 {
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    color: rgb(216, 190, 43);
+}
+
 form ul {
     list-style: none;
 }
@@ -166,6 +172,11 @@ p > input {
     background-color: #f6e2b3;
     padding: 4px 3px;
     font-size: inherit;
+}
+
+label[for="title"]::after, label[for="author"]::after, div > p::after {
+    content: '*';
+    color: rgb(219, 31, 31);
 }
 
 p > input::placeholder {
