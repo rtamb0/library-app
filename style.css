@@ -145,3 +145,41 @@ div > ul {
     display: flex;
     gap: 1rem;
 }
+
+.book-buttons {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.book-buttons button {
+    flex: 1;
+    padding: 0.5rem 0;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.book-buttons button:nth-child(1) {
+    background-color: rgb(43, 216, 121);
+}
+
+.book-buttons button:nth-child(1):hover {
+    transform: var(--hoverscale);
+}
+
+.book-buttons button:nth-child(1):active {
+    background-color: rgb(54, 199, 119);;
+}
+
+.book-buttons button:nth-child(2) {
+    background-color: rgb(214, 70, 70);
+    color: white;
+}
+
+.book-buttons button:nth-child(2):hover {
+    transform: var(--hoverscale);
+}
+
+.book-buttons button:nth-child(2):active {
+    background-color: rgb(158, 60, 60);
+}
