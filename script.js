@@ -7,18 +7,19 @@ myLibrary.showLibrary = function() {
     card.removeCard();
 };
 
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
-};
-
-Book.prototype.readStatus = function() {
-    if (this.read === "Yes") {
-        this.read = "No";
-    } else {
-        this.read = "Yes";
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    };
+    readStatus() {
+        if (this.read === "Yes") {
+            this.read = "No";
+        } else {
+            this.read = "Yes";
+        };
     };
 };
 
